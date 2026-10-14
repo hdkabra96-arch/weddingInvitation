@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="gold">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Aarav & Shanaya | The Royal Wedding Invitation</title>
+  <meta name="description" content="You are cordially invited to celebrate the royal union of Aarav & Shanaya. Explore itinerary, venue map, and RSVP." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=11.0" />
+
+  <style>
+    /* Standalone Public Invitation Page Specific Luxury Styling */
+    body {
+      background: var(--bg-main);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Gold Shimmer Top Bar */
+    .invite-top-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    [data-theme="midnight"] .invite-top-bar {
+      background: rgba(20, 18, 16, 0.88);
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .invite-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .invite-live-url-pill {
+      font-family: monospace;
+      font-size: 0.78rem;
+      background: var(--bg-champagne-light);
+      color: var(--gold-dark);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-gold-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .invite-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .invite-audio-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .invite-audio-toggle:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-dark);
+    }
+
+    .invite-preview-mode-pill {
+      font-size: 0.72rem;
+      background: rgba(184, 151, 108, 0.15);
+      color: var(--gold-dark);
+      border: 1px solid var(--border-gold);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .btn-invite-back-studio {
+      background: var(--dark-btn);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-invite-back-studio:hover {
+      background: var(--dark-btn-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Standalone Container */
+    .invite-master-container {
+      max-width: 680px;
+      width: 100%;
+      margin: 24px auto 90px auto;
+      padding: 0 16px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Unfurl Card Paper Frame */
+    .invite-unfurl-frame {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-gold-light);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Royal Reveal Area */
+    .invite-reveal-hero {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, var(--bg-champagne-light) 0%, var(--bg-card) 100%);
+      padding: 40px 20px;
+      overflow: hidden;
+    }
+
+    .invite-monogram-badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      background: var(--bg-card);
+      margin: 0 auto 14px auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .invite-tagline {
+      font-size: 0.76rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .invite-names {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin: 0 0 10px 0;
+    }
+
+    .invite-meta {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .invite-hashtag {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--gold-dark);
+      background: var(--bg-card-alt);
+      padding: 4px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-light);
+      margin-bottom: 24px;
+    }
+
+    /* Countdown Timer */
+    .invite-countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 380px;
+      margin: 0 auto 28px auto;
+      width: 100%;
+    }
+
+    .invite-count-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 10px 6px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .invite-count-num {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      line-height: 1;
+    }
+
+    .invite-count-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Couple Photo Banner */
+    .invite-photo-wrap {
+      max-width: 580px;
+      margin: 0 auto 30px auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 2px solid var(--border-gold-light);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+    }
+
+    .invite-photo-wrap img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Section Header within Invite */
+    .invite-card-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .invite-section-title {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      text-align: center;
+      color: var(--text-primary);
+    }
+
+    .invite-section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .invite-section-divider span {
+      color: var(--gold-primary);
+      font-size: 0.9rem;
+    }
+
+    .invite-section-divider::before,
+    .invite-section-divider::after {
+      content: '';
+      height: 1px;
+      width: 40px;
+      background: var(--border-gold-light);
+    }
+
+    /* Events Itinerary List */
+    .invite-events-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .invite-event-card {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      text-align: left;
+      transition: all 0.25s ease;
+    }
+
+    .invite-event-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .invite-event-icon {
+      font-size: 1.8rem;
+      background: var(--bg-card);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-gold-light);
+      flex-shrink: 0;
+    }
+
+    .invite-event-details {
+      flex: 1;
+    }
+
+    .invite-event-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+      color: var(--text-primary);
+    }
+
+    .invite-event-meta {
+      font-size: 0.82rem;
+      color: var(--gold-dark);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .invite-event-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .invite-event-dress {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.74rem;
+      background: var(--bg-champagne-light);
+      color: var(--gold-dark);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-gold-light);
+    }
+
+    /* Google Maps Embed in Public View */
+    .invite-map-box {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      height: 240px;
+      margin: 14px 0 16px 0;
+    }
+
+    .invite-map-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Public RSVP Form */
+    .invite-rsvp-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .invite-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .invite-form-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+    }
+
+    .invite-form-input,
+    .invite-form-select,
+    .invite-form-textarea {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .invite-form-input:focus,
+    .invite-form-select:focus,
+    .invite-form-textarea:focus {
+      border-color: var(--gold-primary);
+      background: var(--bg-card);
+      box-shadow: 0 0 0 3px rgba(184, 151, 108, 0.15);
+    }
+
+    .invite-attendance-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .invite-att-btn {
+      padding: 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      background: var(--bg-card-alt);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .invite-att-btn.active-yes {
+      background: #ECFDF5;
+      color: #065F46;
+      border-color: #10B981;
+    }
+
+    .invite-att-btn.active-no {
+      background: #FEF2F2;
+      color: #991B1B;
+      border-color: #EF4444;
+    }
+
+    .invite-btn-submit-rsvp {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary));
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(154, 123, 79, 0.35);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .invite-btn-submit-rsvp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(154, 123, 79, 0.45);
+    }
+
+    /* Sticky Bottom Share Bar */
+    .invite-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-gold-light);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      z-index: 999;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    [data-theme="midnight"] .invite-bottom-bar {
+      background: rgba(20, 18, 16, 0.94);
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-share-whatsapp {
+      background: #25D366;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-share-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-share-copy {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-share-copy:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-dark);
+    }
+
+    .btn-share-edit {
+      background: var(--dark-btn);
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-share-edit:hover {
+      background: var(--dark-btn-hover);
+    }
+
+    /* Confetti animation */
+    .confetti-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3000;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Confetti Container -->
+  <div class="confetti-container" id="confettiContainer"></div>
+
+  <!-- Ambient Top Bar -->
+  <header class="invite-top-bar">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <a href="index.html" class="invite-brand-logo">
+        <span>✦</span>
+        <span>Nimantra</span>
+      </a>
+      <span class="invite-preview-mode-pill">👁️ Final Outcome Preview</span>
+    </div>
+
+    <div class="invite-live-url-pill">
+      <span>🔒</span>
+      <span id="topLiveUrlText">nimantra.in/aarav-and-shanaya</span>
+    </div>
+
+    <div class="invite-top-actions">
+      <button class="invite-audio-toggle" id="btnAudioToggle" onclick="toggleAudio()">
+        <span>🎵</span>
+        <span id="audioStatusText">Play Music</span>
+      </button>
+      <a href="index.html" class="btn-invite-back-studio" title="Return to customization studio and complete checkout">
+        <span>← Studio &amp; Payment</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Master Content Container -->
+  <main class="invite-master-container">
+
+    <!-- Hero Card Frame -->
+    <article class="invite-unfurl-frame">
+      <div class="invite-reveal-hero">
+        <div class="invite-monogram-badge" id="inviteMonogram">S & A</div>
+        <div class="invite-tagline" id="inviteTagline">Together with their families</div>
+        <h1 class="invite-names" id="inviteNames">Aarav & Shanaya</h1>
+        <div class="invite-meta" id="inviteMeta">Saturday, 14 November 2026 • The Leela Palace, Udaipur</div>
+        <div class="invite-hashtag" id="inviteHashtag">#AaravWedsShanaya</div>
+
+        <!-- Live Countdown -->
+        <div class="invite-countdown-grid">
+          <div class="invite-count-box">
+            <div class="invite-count-num" id="countDays">32</div>
+            <div class="invite-count-label">Days</div>
+          </div>
+          <div class="invite-count-box">
+            <div class="invite-count-num" id="countHours">14</div>
+            <div class="invite-count-label">Hours</div>
+          </div>
+          <div class="invite-count-box">
+            <div class="invite-count-num" id="countMins">45</div>
+            <div class="invite-count-label">Mins</div>
+          </div>
+          <div class="invite-count-box">
+            <div class="invite-count-num" id="countSecs">20</div>
+            <div class="invite-count-label">Secs</div>
+          </div>
+        </div>
+
+        <!-- Couple Photo Banner -->
+        <div class="invite-photo-wrap">
+          <img src="assets/images/couple.jpg" alt="Aarav & Shanaya" id="invitePhoto" />
+        </div>
+      </div>
+    </article>
+
+    <!-- Section: Our Story & Welcome Note -->
+    <section class="invite-card-section" id="storySection">
+      <h2 class="invite-section-title" id="storyTitle">Our Journey to Forever</h2>
+      <div class="invite-section-divider"><span>✦</span></div>
+      <p style="font-size: 0.95rem; line-height: 1.8; color: var(--text-secondary); text-align: center; margin: 0 0 16px 0;" id="storyText">
+        From college library study breaks to countless sunsets across the globe, ten years of love and laughter lead us to this magical chapter. We cannot wait to celebrate our union surrounded by the blessings of our dearest family and friends.
+      </p>
+      <div style="font-family: var(--font-script); font-size: 1.6rem; color: var(--gold-dark); text-align: center;" id="storyQuote">
+        “Where there is love, there is life.”
+      </div>
+    </section>
+
+    <!-- Section: Celebration Itinerary -->
+    <section class="invite-card-section">
+      <h2 class="invite-section-title">Ceremonies & Itinerary</h2>
+      <div class="invite-section-divider"><span>✦</span></div>
+      <div class="invite-events-stack" id="eventsContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Section: Venue Location & Google Maps -->
+    <section class="invite-card-section">
+      <h2 class="invite-section-title">Celebration Venue</h2>
+      <div class="invite-section-divider"><span>✦</span></div>
+      <div style="text-align: center; margin-bottom: 12px;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin: 0 0 4px 0;" id="venueName">The Leela Palace, Udaipur</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;" id="venueAddress">Lake Pichola, Udaipur, Rajasthan 313001, India</p>
+      </div>
+
+      <!-- Google Maps Embed -->
+      <div class="invite-map-box">
+        <iframe id="mapIframe" src="https://maps.google.com/maps?q=The%20Leela%20Palace%2C%20Udaipur%2C%20Rajasthan&t=&z=14&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" loading="lazy" title="Venue Map"></iframe>
+      </div>
+
+      <div style="text-align: center;">
+        <a id="btnMapsDirection" href="https://www.google.com/maps/search/?api=1&query=The%20Leela%20Palace%2C%20Udaipur%2C%20Rajasthan" target="_blank" rel="noopener" class="btn-hero-primary" style="display: inline-flex; text-decoration: none; padding: 12px 28px;">
+          <span>🗺️ Open in Google Maps Navigation</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Section: Travel & Stay Concierge -->
+    <section class="invite-card-section" id="travelSection">
+      <h2 class="invite-section-title">Travel & Hospitality</h2>
+      <div class="invite-section-divider"><span>✦</span></div>
+      <div style="display: flex; flex-direction: column; gap: 14px; text-align: left;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <div style="font-size: 1.4rem;">✈️</div>
+          <div>
+            <div style="font-weight: 600; font-size: 0.88rem;">Airport & Nearest Transit</div>
+            <div style="font-size: 0.84rem; color: var(--text-muted);" id="travelAirport">Maharana Pratap Airport (UDR) - 25km (45 min drive)</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <div style="font-size: 1.4rem;">🏨</div>
+          <div>
+            <div style="font-weight: 600; font-size: 0.88rem;">Hotel Room Block Code</div>
+            <div style="font-size: 0.84rem; color: var(--text-muted);" id="travelHotel">The Leela Palace Udaipur (Special Room Block Code: AARAVWEDSSHANAYA)</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <div style="font-size: 1.4rem;">🛎️</div>
+          <div>
+            <div style="font-weight: 600; font-size: 0.88rem;">Concierge Help Desk</div>
+            <div style="font-size: 0.84rem; color: var(--text-muted);" id="travelContact">Rajesh Sharma (Hospitality Concierge) • +91 98765 43210</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Interactive Guest RSVP -->
+    <section class="invite-card-section" id="rsvpSection">
+      <h2 class="invite-section-title">Kindly RSVP</h2>
+      <div class="invite-section-divider"><span>✦</span></div>
+      <p style="font-size: 0.88rem; color: var(--text-muted); text-align: center; margin-bottom: 20px;">
+        Please let us know if you can join our celebration before <strong id="rsvpDeadline">1 November 2026</strong>.
+      </p>
+
+      <form class="invite-rsvp-form" id="guestRsvpForm" onsubmit="handlePublicRsvpSubmit(event)">
+        <!-- Attendance Toggle -->
+        <div class="invite-form-group">
+          <label class="invite-form-label">Will you be attending?</label>
+          <div class="invite-attendance-selector">
+            <button type="button" class="invite-att-btn active-yes" id="btnAttYes" onclick="selectAttendance('coming')">
+              <span>✓ Joyfully Accepts</span>
+            </button>
+            <button type="button" class="invite-att-btn" id="btnAttNo" onclick="selectAttendance('declined')">
+              <span>✕ Regretfully Declines</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Guest / Family Name -->
+        <div class="invite-form-group">
+          <label class="invite-form-label">Your Name / Family Name *</label>
+          <input type="text" class="invite-form-input" id="rsvpName" placeholder="e.g. Dr. Rajesh & Sunita Sharma" required />
+        </div>
+
+        <!-- Headcount -->
+        <div class="invite-form-group" id="groupHeadcount">
+          <label class="invite-form-label">Number of Attending Guests</label>
+          <select class="invite-form-select" id="rsvpCount">
+            <option value="1">1 Guest</option>
+            <option value="2" selected>2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5+ Family Members</option>
+          </select>
+        </div>
+
+        <!-- Dietary Preferences -->
+        <div class="invite-form-group" id="groupDiet">
+          <label class="invite-form-label">Dietary Preferences</label>
+          <select class="invite-form-select" id="rsvpDiet">
+            <option value="Vegetarian" selected>Pure Vegetarian</option>
+            <option value="Jain (Satvik)">Jain (Satvik - No Root Vegetables)</option>
+            <option value="Royal Non-Veg">Royal Non-Veg Feast</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Gluten-Free">Gluten-Free</option>
+          </select>
+        </div>
+
+        <!-- DJ Song Request -->
+        <div class="invite-form-group" id="groupSong">
+          <label class="invite-form-label">DJ Song Request (What gets you dancing?)</label>
+          <input type="text" class="invite-form-input" id="rsvpSong" placeholder="e.g. Gallan Goodiyan / London Thumakda" />
+        </div>
+
+        <!-- Warm Wishes -->
+        <div class="invite-form-group">
+          <label class="invite-form-label">Warm Wishes & Blessings</label>
+          <textarea class="invite-form-textarea" id="rsvpWishes" rows="3" placeholder="Write a blessing for the couple..."></textarea>
+        </div>
+
+        <button type="submit" class="invite-btn-submit-rsvp" id="btnSubmitRsvp">
+          <span>💌 Submit Your RSVP</span>
+        </button>
+      </form>
+
+      <!-- RSVP Confirmed Success Box -->
+      <div id="rsvpSuccessBox" style="display: none; background: #ECFDF5; border: 1px solid #10B981; border-radius: var(--radius-md); padding: 20px; text-align: center; margin-top: 14px;">
+        <div style="font-size: 2rem; margin-bottom: 6px;">✨</div>
+        <h4 style="color: #065F46; font-family: var(--font-serif); font-size: 1.3rem; margin: 0 0 6px 0;">RSVP Recorded!</h4>
+        <p style="color: #047857; font-size: 0.9rem; margin: 0;" id="rsvpSuccessMsg">Thank you! Your reply has been sent to Aarav & Shanaya. We look forward to celebrating with you.</p>
+      </div>
+    </section>
+
+    <!-- Footer Copyright -->
+    <footer style="text-align: center; font-size: 0.8rem; color: var(--text-muted); padding: 20px 0;">
+      <div>Created with ✦ <a href="index.html" style="color: var(--gold-dark); text-decoration: none; font-weight: 600;">Nimantra</a> — Luxury Digital Invitations</div>
+      <div style="margin-top: 4px;">nimantra.in • All rights reserved</div>
+    </footer>
+
+  </main>
+
+  <!-- Sticky Bottom Share Bar -->
+  <aside class="invite-bottom-bar">
+    <a href="#" id="btnShareWa" target="_blank" rel="noopener" class="btn-share-whatsapp">
+      <span>📲 Share on WhatsApp</span>
+    </a>
+    <button class="btn-share-copy" onclick="copyInviteLink()">
+      <span>📋 Copy Link</span>
+    </button>
+    <a href="index.html" class="btn-share-edit">
+      <span>✏️ Open Studio</span>
+    </a>
+  </aside>
+
+  <!-- Audio Context for ambient sitar melodies -->
+  <script>
+    // Load appState from localStorage or fallback
+    let currentData = null;
+    try {
+      const stored = localStorage.getItem('nimantra_app_state');
+      if (stored) {
+        currentData = JSON.parse(stored);
+      }
+    } catch(e) {
+      console.warn('Could not read stored app state', e);
+    }
+
+    if (!currentData) {
+      currentData = {
+        theme: 'gold',
+        host1: 'Shanaya',
+        host2: 'Aarav',
+        tagline: 'Together with their families',
+        monogram: 'S & A',
+        hashtag: '#AaravWedsShanaya',
+        date: '2026-11-14',
+        venue: 'The Leela Palace, Udaipur',
+        venueAddress: 'Lake Pichola, Udaipur, Rajasthan 313001, India',
+        slug: 'aarav-and-shanaya',
+        events: [
+          { title: 'Mehendi & Haldi Rasam', icon: '🌸', date: '2026-11-13', time: '11:00 AM', venue: 'Guava Orchard & Poolside Deck', dressCode: 'Bright Yellow & Floral Pastels' },
+          { title: 'Sangeet & Cocktail Soiree', icon: '🥁', date: '2026-11-13', time: '6:30 PM', venue: 'Grand Mewar Ballroom', dressCode: 'Indo-Western Velvet' },
+          { title: 'The Royal Pheras', icon: '💍', date: '2026-11-14', time: '5:00 PM', venue: 'Lake Palace Sunset Mandap', dressCode: 'Regal Traditional' },
+          { title: 'The Grand Reception Dinner', icon: '🥂', date: '2026-11-14', time: '8:30 PM', venue: 'Courtyard of Courtesies', dressCode: 'Black Tie / Silk Sherwanis' }
+        ],
+        story: {
+          enabled: true,
+          title: 'Our Journey to Forever',
+          text: 'From college library study breaks to countless sunsets across the globe, ten years of love and laughter lead us to this magical chapter. We cannot wait to celebrate our union surrounded by the blessings of our dearest family and friends.',
+          quote: '“Where there is love, there is life.”'
+        },
+        travel: {
+          enabled: true,
+          airport: 'Maharana Pratap Airport (UDR) - 25km (45 min drive)',
+          hotel: 'The Leela Palace Udaipur (Special Room Block Code: AARAVWEDSSHANAYA)',
+          contact: 'Rajesh Sharma (Hospitality Concierge) • +91 98765 43210'
+        }
+      };
+    }
+
+    // Apply Theme
+    if (currentData.theme) {
+      document.documentElement.setAttribute('data-theme', currentData.theme);
+    }
+
+    // Determine Occasion specific styling & text
+    const occasion = currentData.occasion || 'wedding';
+    let hostNames = `${currentData.host2 || 'Aarav'} & ${currentData.host1 || 'Shanaya'}`;
+    let invitationHeader = 'The Royal Wedding Invitation';
+
+    if (occasion === 'birthday') {
+      hostNames = `${currentData.host1 || 'Shanaya'}`;
+      invitationHeader = `${currentData.host1 || 'Shanaya'}'s Milestone Birthday`;
+    } else if (occasion === 'housewarming') {
+      hostNames = `${currentData.host1 || 'The Sharma Family'}`;
+      invitationHeader = 'Griha Pravesh Celebration';
+    } else if (occasion === 'engagement') {
+      hostNames = `${currentData.host2 || 'Aarav'} & ${currentData.host1 || 'Shanaya'}`;
+      invitationHeader = 'Sagai & Engagement Ceremony';
+    } else if (occasion === 'babyshower') {
+      hostNames = `${currentData.host1 || 'Pooja'}`;
+      invitationHeader = `${currentData.host1 || 'Pooja'}'s Godh Bharai`;
+    } else if (occasion === 'anniversary') {
+      hostNames = `${currentData.host2 || 'Rajesh'} & ${currentData.host1 || 'Sunita'}`;
+      invitationHeader = 'Milestone Anniversary Celebration';
+    }
+
+    document.getElementById('pageTitle').textContent = `${hostNames} | ${invitationHeader}`;
+    document.getElementById('inviteNames').textContent = hostNames;
+    document.getElementById('inviteMonogram').textContent = currentData.monogram || 'S & A';
+    document.getElementById('inviteTagline').textContent = currentData.tagline || 'Together with their families';
+    document.getElementById('inviteHashtag').textContent = currentData.hashtag || '#AaravWedsShanaya';
+    document.getElementById('topLiveUrlText').textContent = `nimantra.in/${currentData.slug || 'aarav-and-shanaya'}`;
+    if (currentData.coverPhoto) {
+      const photoEl = document.getElementById('invitePhoto');
+      if (photoEl) photoEl.src = currentData.coverPhoto;
+    }
+
+    // Format Date
+    let dateObj = new Date(currentData.date || '2026-11-14');
+    if (isNaN(dateObj.getTime())) dateObj = new Date('2026-11-14');
+    const formattedDate = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('inviteMeta').textContent = `${formattedDate} • ${currentData.venue || 'The Leela Palace, Udaipur'}`;
+    document.getElementById('venueName').textContent = currentData.venue || 'The Leela Palace, Udaipur';
+    document.getElementById('venueAddress').textContent = currentData.venueAddress || 'Lake Pichola, Udaipur, Rajasthan 313001, India';
+
+    // Google Maps Embed & Link
+    const mapQuery = encodeURIComponent(currentData.venueAddress || currentData.venue || 'The Leela Palace, Udaipur');
+    document.getElementById('mapIframe').src = `https://maps.google.com/maps?q=${mapQuery}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
+    document.getElementById('btnMapsDirection').href = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+
+    // Story
+    if (currentData.story && currentData.story.enabled !== false) {
+      document.getElementById('storyTitle').textContent = currentData.story.title || 'Our Journey to Forever';
+      document.getElementById('storyText').textContent = currentData.story.text || '';
+      document.getElementById('storyQuote').textContent = currentData.story.quote || '';
+    } else {
+      document.getElementById('storySection').style.display = 'none';
+    }
+
+    // Travel
+    if (currentData.travel && currentData.travel.enabled !== false) {
+      document.getElementById('travelAirport').textContent = currentData.travel.airport || '';
+      document.getElementById('travelHotel').textContent = currentData.travel.hotel || '';
+      document.getElementById('travelContact').textContent = currentData.travel.contact || '';
+    } else {
+      document.getElementById('travelSection').style.display = 'none';
+    }
+
+    // Events Itinerary Render
+    const eventsContainer = document.getElementById('eventsContainer');
+    if (eventsContainer && currentData.events && currentData.events.length > 0) {
+      eventsContainer.innerHTML = currentData.events.map(ev => `
+        <div class="invite-event-card">
+          <div class="invite-event-icon">${ev.icon || '✦'}</div>
+          <div class="invite-event-details">
+            <h4 class="invite-event-title">${ev.title}</h4>
+            <div class="invite-event-meta">${ev.date || ''} • ${ev.time || ''}</div>
+            <div class="invite-event-desc">📍 ${ev.venue || ''}</div>
+            ${ev.dressCode ? `<div class="invite-event-dress">Dress Code: ${ev.dressCode}</div>` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // WhatsApp Share Link
+    const liveLink = `https://nimantra.in/${currentData.slug || 'aarav-and-shanaya'}`;
+    const waText = encodeURIComponent(`Namaste! ✨ We are delighted to invite you to celebrate our wedding. Please open our personalized invitation: ${liveLink}`);
+    document.getElementById('btnShareWa').href = `https://wa.me/?text=${waText}`;
+
+    // Live Countdown Timer
+    function startCountdown() {
+      const targetTime = dateObj.getTime();
+      function update() {
+        const now = new Date().getTime();
+        const diff = targetTime - now;
+        if (diff > 0) {
+          const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const s = Math.floor((diff % (1000 * 60)) / 1000);
+          document.getElementById('countDays').textContent = d;
+          document.getElementById('countHours').textContent = h;
+          document.getElementById('countMins').textContent = m;
+          document.getElementById('countSecs').textContent = s;
+        } else {
+          document.getElementById('countDays').textContent = '00';
+          document.getElementById('countHours').textContent = '00';
+          document.getElementById('countMins').textContent = '00';
+          document.getElementById('countSecs').textContent = '00';
+        }
+      }
+      update();
+      setInterval(update, 1000);
+    }
+    startCountdown();
+
+    // Copy Link function
+    function copyInviteLink() {
+      navigator.clipboard.writeText(liveLink).then(() => {
+        alert('Copied link: ' + liveLink);
+      }).catch(() => {
+        alert('Link: ' + liveLink);
+      });
+    }
+
+    // Attendance selection
+    let attendanceChoice = 'coming';
+    function selectAttendance(val) {
+      attendanceChoice = val;
+      const btnYes = document.getElementById('btnAttYes');
+      const btnNo = document.getElementById('btnAttNo');
+      const groupHead = document.getElementById('groupHeadcount');
+      const groupDiet = document.getElementById('groupDiet');
+      const groupSong = document.getElementById('groupSong');
+
+      if (val === 'coming') {
+        btnYes.className = 'invite-att-btn active-yes';
+        btnNo.className = 'invite-att-btn';
+        if (groupHead) groupHead.style.display = 'flex';
+        if (groupDiet) groupDiet.style.display = 'flex';
+        if (groupSong) groupSong.style.display = 'flex';
+      } else {
+        btnYes.className = 'invite-att-btn';
+        btnNo.className = 'invite-att-btn active-no';
+        if (groupHead) groupHead.style.display = 'none';
+        if (groupDiet) groupDiet.style.display = 'none';
+        if (groupSong) groupSong.style.display = 'none';
+      }
+    }
+
+    // Handle RSVP submission
+    function handlePublicRsvpSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('rsvpName').value.trim();
+      const count = attendanceChoice === 'coming' ? parseInt(document.getElementById('rsvpCount').value, 10) : 0;
+      const diet = attendanceChoice === 'coming' ? document.getElementById('rsvpDiet').value : '';
+      const song = attendanceChoice === 'coming' ? document.getElementById('rsvpSong').value.trim() : '';
+      const wishes = document.getElementById('rsvpWishes').value.trim();
+
+      const newRsvp = {
+        name: name,
+        status: attendanceChoice,
+        count: count,
+        events: ['All Events'],
+        diet: diet,
+        song: song,
+        time: 'Just now'
+      };
+
+      // Save to localStorage so Host Dashboard receives it in real time
+      try {
+        let appState = JSON.parse(localStorage.getItem('nimantra_app_state') || '{}');
+        if (!appState.rsvps) appState.rsvps = [];
+        appState.rsvps.unshift(newRsvp);
+        localStorage.setItem('nimantra_app_state', JSON.stringify(appState));
+      } catch(err) {
+        console.warn('Could not save to localStorage', err);
+      }
+
+      // Hide form, show celebration confirmation
+      document.getElementById('guestRsvpForm').style.display = 'none';
+      const successBox = document.getElementById('rsvpSuccessBox');
+      successBox.style.display = 'block';
+      if (attendanceChoice === 'coming') {
+        document.getElementById('rsvpSuccessMsg').textContent = `Thank you, ${name}! Your RSVP for ${count} guest(s) is confirmed. Aarav & Shanaya are excited to celebrate with you!`;
+      } else {
+        document.getElementById('rsvpSuccessMsg').textContent = `Thank you for letting us know, ${name}. Your blessings have been warmly received by the family.`;
+      }
+
+      triggerConfetti();
+    }
+
+    // Simple Confetti effect
+    function triggerConfetti() {
+      const container = document.getElementById('confettiContainer');
+      const colors = ['#B8976C', '#DFCEB8', '#10B981', '#F59E0B', '#EF4444', '#EC4899'];
+      for (let i = 0; i < 60; i++) {
+        const piece = document.createElement('div');
+        piece.style.position = 'absolute';
+        piece.style.width = Math.random() * 10 + 6 + 'px';
+        piece.style.height = Math.random() * 10 + 6 + 'px';
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.top = '-20px';
+        piece.style.opacity = Math.random() + 0.5;
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        piece.style.transition = `all ${Math.random() * 2 + 2}s cubic-bezier(0.25, 1, 0.5, 1)`;
+        container.appendChild(piece);
+
+        setTimeout(() => {
+          piece.style.top = '100vh';
+          piece.style.transform = `rotate(${Math.random() * 720}deg) translateX(${Math.random() * 100 - 50}px)`;
+          piece.style.opacity = '0';
+        }, 20);
+
+        setTimeout(() => {
+          piece.remove();
+        }, 4000);
+      }
+    }
+
+    // Web Audio Synthesizer (Ambient Sitar Tanpura Drone)
+    let audioCtx = null;
+    let isPlaying = false;
+    let osc1 = null, osc2 = null;
+    function toggleAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      const btn = document.getElementById('btnAudioToggle');
+      const label = document.getElementById('audioStatusText');
+
+      if (!isPlaying) {
+        audioCtx.resume();
+        osc1 = audioCtx.createOscillator();
+        osc2 = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc1.type = 'triangle';
+        osc1.frequency.setValueAtTime(146.83, audioCtx.currentTime); // D3 Sa
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(220.00, audioCtx.currentTime); // A3 Pa
+
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc1.start();
+        osc2.start();
+        isPlaying = true;
+        label.textContent = 'Music Playing ♫';
+        btn.style.borderColor = 'var(--gold-primary)';
+        btn.style.color = 'var(--gold-dark)';
+      } else {
+        if (osc1) osc1.stop();
+        if (osc2) osc2.stop();
+        isPlaying = false;
+        label.textContent = 'Play Music';
+        btn.style.borderColor = 'var(--border-light)';
+        btn.style.color = 'var(--text-secondary)';
+      }
+    }
+  </script>
+</body>
+</html>
